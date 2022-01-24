@@ -1,2 +1,2 @@
-# office-workspace-optimization
+# Federal Reserve Bank of Richmond Office Workspace Optimization
 Won Optimization model class competition issued by Dr. Brooks (M.D.A. department chair and professor). Proposed Python, Pyomo and GLPK network optimization model approach with binary variables and logical constraints to simulate reorganization of 1700 workspaces across 17 floors, while allocating for changing project teams and requirements. Provided report to IT Vice President, Christine Holzem at the Federal Reserve Bank of Richmond.
