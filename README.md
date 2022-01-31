@@ -18,7 +18,7 @@ The Federal Reserve needs to optimize seating locations of 1700 workers on 17 fl
 We started with a smaller base model of seven workers having seven offices and decided an “assignment” optimization problem to reassign workers to spaces would be most effective. With this, we began making assumptions for moves and distances (see appendix 2, moves and 3, distance). This allowed us to work out a model that easily adapted to the complete floor plan (see appendix1, Floorplan). The distance spreadsheet is based off the floor plan of how the office spaces are aligned on each side of the building. The moves spreadsheet assigns current offices to the workers but can be updated to address the current office layout. The worker data spreadsheet has current worker data; however, it can be adjusted with actual worker name and information to provide updated results (see appendix 4, worker).
 
 ## Data:  
- #### Let:
+ #### Let: (see [Report File](Federal_Reserve_Bank_Workspace_Final_Report.pdf))
 W = {1 - 20} Workers 
 S = {ACO, A2W1, A3W, AEC, AIC, A2W2, , B2W1, B3W, BEC, BIC, BIO1, BIO2, B2W2} For the spaces available we assigned letter codes, for instance: (ACO = A side corner office or BEC = B side exterior cubicle)
 V = W U S= { 1,2,3……. ACO, A2W1, A2W2}
@@ -40,7 +40,7 @@ Assign workers to office spaces so that distance between workers on a team are m
 	Distance between team members is minimized
  
 ## Algebraic Formulation:
-Decision Variables:
+Decision Variables:  (see [Report File](Federal_Reserve_Bank_Workspace_Final_Report.pdf))
 Let:
 xij = 1 if workeri is assigned to spacej , i,j∈A
 yijkl = 1 if team memberi  is assigned to spacej and team memberk  is assigned to spacel   , (i,j)∈A,   (k,l)∈A
@@ -73,25 +73,19 @@ While moving a little over half of the workers and a total distance of 1,230 fee
 The strength of this model is the ability to adjust it’s data set to accommodate a greater volume of attributes and values. When implementing new data and increasing the scale, we recommend starting with one floor at a time; creating constraints specific for a floor and then adding complexities if teams need to be divided onto more than one floor. Something to consider are scenarios with exceptions, for example, where a worker is permitted to sit in a workspace outside of their rank. If the model recognizes a worker as currently sitting in a workspace rank higher than allowed, then it will demote them when running the model. Always spot check and troubleshoot for exceptions in the results.  In this data set, worker 5 stands out as exceptionally far away from their teammates, therefore, skewing the average distance for Team 2. For this individual, we would suggest you consider approaching facilities management to see what workspace they could possibly add to make room for this individual to be closer. After all, there may be a possibility we see an increase in people working from home in the future.
  
 ## Appendix 1: Floorplan
-![image](https://user-images.githubusercontent.com/65502025/151857594-fa43bd35-3038-409e-8008-419572232632.png)
-
-
- 
+<img width="410" alt="image" src="https://user-images.githubusercontent.com/65502025/151860039-5c614acd-8cab-43af-ae39-44ec8ec278e1.png"> 
  
 ## Appendix 2 – Moves
-![image](https://user-images.githubusercontent.com/65502025/151857573-7cd1d1a5-4f43-4bc7-bf90-f1c4944e5775.png)
-
+<img width="425" alt="image" src="https://user-images.githubusercontent.com/65502025/151860105-69b87636-bda5-48d8-817d-7a9095a9fdea.png">
  
  
 ## Appendix 3: Distance
-![image](https://user-images.githubusercontent.com/65502025/151857538-bc5f1964-eb68-4514-b334-6c2c772b1168.png)
-
+<img width="397" alt="image" src="https://user-images.githubusercontent.com/65502025/151860179-c4eb0e68-f4de-4c46-8584-c53b163d37fa.png">
 
  
  
 ## Appendix 4: Worker
-![image](https://user-images.githubusercontent.com/65502025/151857505-d4b90982-ce41-427d-a794-d948917f0b4f.png)
-
+<img width="229" alt="image" src="https://user-images.githubusercontent.com/65502025/151860227-ad1ed25c-9729-4f20-9389-02cb3f0b5ea3.png">
 
  
  
