@@ -20,24 +20,35 @@ We started with a smaller base model of seven workers having seven offices and d
 ## Data:  
  #### Let: (see [Report File](Federal_Reserve_Bank_Workspace_Final_Report.pdf))
 W = {1 - 20} Workers 
+
 S = {ACO, A2W1, A3W, AEC, AIC, A2W2, , B2W1, B3W, BEC, BIC, BIO1, BIO2, B2W2} For the spaces available we assigned letter codes, for instance: (ACO = A side corner office or BEC = B side exterior cubicle)
+
 V = W U S= { 1,2,3……. ACO, A2W1, A2W2}
+
 A = W X S = {(1, ACO), (1, A2W1),……}
+
 D = S∪S
+
 m_ij = move of 〖worker〗_i to 〖space〗_i  i,j∈A
+
 d_jl = distance from 〖space〗_j to 〖space〗_l   j,l∈D
+
 b_i = { 1 if i∈S and -1 if i∈T  
+
 rank_worker = rank of worker
+
 rank_space = rank allowed in space
+
 team_worker = team assignment of worker
+
 capacity = 7 (capacity of office space)
 
 ## Objective in words
 Assign workers to office spaces so that distance between workers on a team are minimized and the number of workers moving to a new space is minimized, subject to the following constraints:
-	Capacity of space is equal to 1
-	Worker rank is equal to space rank
-	Moves are minimized
-	Distance between team members is minimized
+	* Capacity of space is equal to 1
+	* Worker rank is equal to space rank
+	* Moves are minimized
+	* Distance between team members is minimized
  
 ## Algebraic Formulation:
 Decision Variables:  (see [Report File](Federal_Reserve_Bank_Workspace_Final_Report.pdf))
@@ -45,15 +56,7 @@ Let:
 xij = 1 if workeri is assigned to spacej , i,j∈A
 yijkl = 1 if team memberi  is assigned to spacej and team memberk  is assigned to spacel   , (i,j)∈A,   (k,l)∈A
 
-#### Objective:
-〖min ∑_(i,j∈A)▒〖m_ij x〗_ij 〗⁡ +     〖∑_(i∈W) ∑_(j∈S) ∑_(k∈W) ∑_(l∈S)▒〖d_jl y〗_ijkl 〗⁡       (Moves_distance)
-
-#### Constraints:
-〖 ∑_(j∈V:(j,i)∈A)▒x_(ji )   〗⁡- ∑_(j∈V:(i.j)∈A)▒x_(ij ) = b_i  ,i∈W  (Assign Worker)
-〖 ∑_(j∈V:(j,i)∈A)▒x_(ji )   〗⁡- ∑_(j∈V:(i.j)∈A)▒x_(ij ) ≥ b_i  ,i∈W (Space Limit)
-〖 if team_〖worker〗_i=team_〖worker〗_i:x〗_ij+x_kl   ≤y_(ijkl )+1,( ij),(kl)∈A  
-else:   y_(ijkl )=0      (Flipon Distance)  
-〖 if rank_〖worker〗_i≠rank_〖space〗_j:  〗_ x_(ij )=0,( ij)∈A    (Rank Constraint)
+<img width="443" alt="image" src="https://user-images.githubusercontent.com/65502025/152538699-c35ef837-b632-4bb7-bd1c-1d0c07bc35bc.png">
 
 ## Method:
 Our optimization model uses an objective function that calculates the total moves based off the spreadsheet “Moves”(see appendix 2) for any worker that has to relocate from their current space and added the total distance based off the spreadsheet “Distance”(see appendix 3) for the distance from 〖space〗_j to 〖space〗_l. We then added the constraint to ensure workers are assigned a space and workspace capacity for cubicles is 7. We only did the cubicle capacity because workspace rank assignment would limit the office assignment on each team. Next, we have a “flip on” constraint for distance that will only add the distance if workers are assigned to the same team. Lastly, we provided a constraint that will only assign spaces that have a rank equivalent to the workers rank. For instance, A side corner office is only assigned to a worker with rank 1. Once setting up the model with Python, we used CoCalc/Anaconda’s Jupyter Lab to run the model and obtained a solution with “glpk” solver.  
