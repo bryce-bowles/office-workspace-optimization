@@ -2,7 +2,7 @@
 SCMA 645 Management Science, 
 Virginia Commonwealth University, 
 Spring 2020.   
-Won Optimization model class competition issued by Dr. J Paul Brooks (Virginia Commonwealth University’s School of Business, Masters of Decision Analytics (M.D.A.)  - Management Science, department chair and professor). Proposed Python, Pyomo and GLPK network optimization model approach with binary variables and logical constraints to simulate reorganization of 1700 workspaces across 17 floors, while allocating for changing project teams and requirements. Provided report to IT Vice President, Christine Holzem at the Federal Reserve Bank of Richmond. ([Report File](https://github.com/bryce-bowles/office-workspace-optimization/raw/main/Federal_Reserve_Bank_Workspace_Final_Report.pdf))
+Won Optimization model class competition issued by Dr. J Paul Brooks (Management Science, department chair and professor). Proposed Python, Pyomo and GLPK network optimization model approach with binary variables and logical constraints to simulate reorganization of 1700 workspaces across 17 floors, while allocating for changing project teams and requirements. Provided report to IT Vice President, Christine Holzem at the Federal Reserve Bank of Richmond. ([Report File](https://github.com/bryce-bowles/office-workspace-optimization/raw/main/Federal_Reserve_Bank_Workspace_Final_Report.pdf))
 
 
 ## Summary
